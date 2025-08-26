@@ -1,6 +1,26 @@
 <p>employee works!</p>
 <h2>Lista pracowników</h2>
-<div *ngFor="let emp of employees">
-  {{ emp.name }} — {{ emp.email }}
-</div>
 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">pracownicy</th>
+      <th scope="col">email</th>
+      <th scope="col">akcjie</th>
+      <th scope="col">szczegóły</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.email }}</td>
+      <td>
+        <button (click)="deleteEmployee(emp.id)" type="button" class="btn btn-danger">Delete</button>
+      </td>
+    
+    </tr>
+  </tbody>
+</table>
