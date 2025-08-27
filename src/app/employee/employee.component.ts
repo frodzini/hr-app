@@ -11,7 +11,8 @@ import { doc, deleteDoc } from '@angular/fire/firestore';
   templateUrl: './employee.component.html', 
   styleUrls: ['./employee.component.css'] 
 })
-export class ListEmployeesComponent { // Komponent do wyświetlania listy pracowników
+export class ListEmployeesComponent {
+[x: string]: any; // Komponent do wyświetlania listy pracowników
   firestore = inject(Firestore); // To jest odwołanie do Firestore 
   employees: any[] = []; // Przechowuje listę pracowników
 
@@ -32,9 +33,13 @@ export class ListEmployeesComponent { // Komponent do wyświetlania listy pracow
     })
     .catch(error => { //łapie błąd
       console.error('Błąd podczas usuwania pracownika:', error);  //wyświetla błąd w konsoli
+    
+    
     });
 }
+   viewDetails(id: string) {
+      console.log(`Wyświetl szczegóły pracownika o id: ${id}`);
+   
+    }
 
-      }
-
- 
+  }
